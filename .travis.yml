@@ -1,0 +1,22 @@
+dist: trusty
+language: ruby
+before_install:
+- bundle install
+rvm:
+- 2.4.3
+- 2.5.0
+scripts:
+- rake lint
+- rake test
+notifications:
+  slack:
+    rooms:
+      secure: cBd7A2GjidOam/fp7hKRB7hh7c0WcBFXHa7UZrYb1vaIKRWn4J7O3U4utg9OOTISBkMzIoD8l9oFWRNMEYkpXMiWmckVfWmPb/aAueIC8Bf2MTW45ArSbn1Mam5agh1MmRv5KvJho0tvGwhFSghEBEZAieAiYPS8E2/zUpf4w0jvgfTG4plZnFaZy1shkmCKpaCG9PPULYglVq+t13vRFBK8MPFUlAoIuEWsnGC6oAszZcog1DmPtBRArSEKa8MMss785pvYDCfdkjntIJYvUTFBJrIH8CWQCjFg9QMxOHT6Y+ZWTzyiZyNgDs699rAMbibgBKW9UYbM8/hf6X9A9nhOlIa7fjDnnZrqNYRUWGd047lqyOaWzohCwbXPi4NniV35+44B5OH6I44Ia8THQm90LIsawF6bfbkynT/fPyfrICsKXx5bIZRmVGEWW1B7sSqRGLxts1JjiTc8FRaaiSUKTvCPbj7CZQXk96LF58ewPXCrD9WN7qgbaYDiOpAb019L1fniuYG4q8fyTaFF6QaZQc6TnfzNKB0Ef7k0Ql7i2ebSD1T2QK+DIwAoditnFN5IbgBj3tgAxoqaLdR9t3+uFxntop1faQ/oxlMeWnL76sszEcMozOFjEuFpHXPnV5043T/JLFNU0drtf9Lk3QHOMUzC96mmZnV8v5QnEW8=
+    template:
+    - "%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
+    - 'Change view : %{compare_url}'
+    - 'Build details : %{build_url}'
+    on_success: change
+    on_failure: always
+    on_cancel: always
+
