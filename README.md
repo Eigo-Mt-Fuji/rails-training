@@ -14,25 +14,31 @@
 
 * Git Clone / Bundle install
 
-```
-git clone git@github.com:Eigo-Mt-Fuji/ruby-rails-labo.git
-bundle install
+```bash
+$ git clone git@github.com:Eigo-Mt-Fuji/ruby-rails-labo.git
+$ bundle install
 ```
 
-* ローカル環境起動
+* docker でrails server 起動 
 
-```
-rails g scaffold DailyReport date:date from_time:string end_time:string comment:string
-bundle exec rake db:migrate
+```bash
+$ docker-compose run -p 10081:3000 -d rails-app
 ```
 
 * 開く
 
-```
-rails server -b localhost -p 10081 &
+```bash
 open http://localhost:10081/daily_reports
+```
+
+## rails scaffiold
+
+```bash
+rails g scaffold DailyReport date:date from_time:string end_time:string comment:string
 ```
 
 ## 参考
 
 * [Qiita Ruby / Rails デバッガことはじめ](https://qiita.com/port-development/items/5ea6448eb2b45c70ef65)
+* [Qiita RailsアプリをDockerで開発する](https://qiita.com/togana/items/30b22fc39fe6f7a188ec)
+* [Qiita MySQLの起動をまってdb:migrate](https://qiita.com/k_tada/items/66c872104beabcfb4340)
