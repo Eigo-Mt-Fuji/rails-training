@@ -7,7 +7,6 @@ rvm:
 - 2.5.0
 scripts:
 - rake lint
-- rake test
 notifications:
   slack:
     rooms:

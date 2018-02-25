@@ -40,8 +40,7 @@ rails g scaffold DailyReport date:date from_time:string end_time:string comment:
 * docker上でrake test実行
 
 ```bash
-SERVICE_NAME=$(docker ps --filter="ancestor=rails-app" --format "{{.Names}}")
-docker exec -it $SERVICE_NAME bash -c "export DATABASE_URL=\"mysql2://app:app@app-db:3306\" && rake test"
+rake test_on_docker
 ```
 
 * lint実行(rubocop)
