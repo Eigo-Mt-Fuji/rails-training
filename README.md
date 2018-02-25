@@ -44,6 +44,12 @@ SERVICE_NAME=$(docker ps --filter="ancestor=rails-app" --format "{{.Names}}")
 docker exec -it $SERVICE_NAME bash -c "export DATABASE_URL=\"mysql2://app:app@app-db:3306\" && rake test"
 ```
 
+* lint実行(rubocop)
+
+```bash
+rake lint
+```
+
 ## 参考
 
 * [Qiita Ruby / Rails デバッガことはじめ](https://qiita.com/port-development/items/5ea6448eb2b45c70ef65)
