@@ -1,4 +1,6 @@
-until mysqladmin ping -h app-db -P3306 --silent; do
+#!/bin/bash
+
+until mysqladmin ping -h $1 -P$2 --silent; do
   echo "waiting for mysql..."
   sleep 1s
 done

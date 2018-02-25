@@ -19,10 +19,10 @@ $ git clone git@github.com:Eigo-Mt-Fuji/ruby-rails-labo.git
 $ bundle install
 ```
 
-* docker でrails server 起動 
+* dockerでrailsのserver起動 
 
 ```bash
-$ docker-compose run -p 10081:3000 -d rails-app
+$ rake run_docker
 ```
 
 * 開く
@@ -35,6 +35,13 @@ open http://localhost:10081/daily_reports
 
 ```bash
 rails g scaffold DailyReport date:date from_time:string end_time:string comment:string
+```
+
+* docker上でrake test実行
+
+```bash
+SERVICE_NAME=$(docker ps --filter="ancestor=rails-app" --format "{{.Names}}")
+docker exec -it $SERVICE_NAME bash -c "export DATABASE_URL=\"mysql2://app:app@app-db:3306\" && rake test"
 ```
 
 ## 参考

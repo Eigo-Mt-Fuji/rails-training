@@ -3,7 +3,9 @@ services:
   rails-app:
     image: rails-app
     build: .
-    command: sh ./start.sh
+    command: sh ./start.sh app-db 3306
+    environment:
+      DATABASE_URL: "mysql2://app:app@app-db:3306"
     ports:
       - "10081:3000"
     working_dir: /usr/local/src/ruby-rails-labo
