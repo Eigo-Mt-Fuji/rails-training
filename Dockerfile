@@ -3,7 +3,7 @@ LABEL maintainer "e-fujikawa <efg.river@gmail.com>" \
       readme="https://github.com/Eigo-Mt-Fuji/ruby-rails-labo/blob/master/README.md" \
       description="Dockerfile of ruby on rails laboratory app." 
 
-ENV LANG en_US.UTF-8
+ENV LANG C.UTF-8
 ENV LC_ALL $LANG
 WORKDIR /tmp
 
