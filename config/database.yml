@@ -10,6 +10,7 @@ default: &default
   socket: /tmp/mysql.sock
 development:
   <<: *default
+  database: app
 test:
   <<: *default
   database: app

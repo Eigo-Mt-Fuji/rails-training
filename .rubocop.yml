@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 Style/AsciiComments:
   Description: 'Use only ascii symbols in comments.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#english-comments'

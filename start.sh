@@ -8,5 +8,6 @@ echo "success to connect mysql"
 
 bundle exec rake db:migrate
 bundle exec rake db:seed
-rails server -P /tmp/rails-app.pid
+#rails server -P /tmp/rails-app.pid
 
+bundle exec unicorn -p 3000 -c config/unicorn.rb

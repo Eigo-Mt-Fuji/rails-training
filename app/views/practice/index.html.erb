@@ -1,0 +1,28 @@
+<script>
+function ajaxTest(title) {
+
+  $.ajax({
+    type: "POST", 
+    url: "/practice/index",
+    data: {title: title},
+    dataType:"json",
+    success: function(data, textStatus, jqXHR) {
+      $("h1").text(data.title);
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      console.log(jxXHR.responseText);
+      alert(jxXHR.responseText);
+    }
+  });
+  return true;
+}
+
+</script>
+<h1>Practice#index</h1>
+<p>Find me in app/views/practice/index.html.erb</p>
+<input type="button" onclick="ajaxTest($('form input[name=\'title\']').val()); return false;" />
+<h1 id="hoge">Ajaxを使ってみよう</h1>
+<%= form_tag(url_for(:action => 'index'), :remote => true) do %>
+  <%= text_field_tag :title %>
+<% end %>
+
