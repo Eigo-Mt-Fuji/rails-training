@@ -1,5 +1,57 @@
-<% provide(:title, 'No.1 Diary') %>
-<h1>No.1 Diary</h1>
-<p>
-    This is the greatest diary, welcome!
-</p>
+<% provide(:title, 'R ITEMS') %>
+<h1>イメージ１０</h1>
+<h2>適当に好きなものを１０こ追加する</h2>
+<script>
+        var itemCount = 0;
+        function onCreate() {
+           var itemName = $("#item_name").val();
+
+           itemCount++;
+           var recordId = "item" + "-" + itemCount;
+           var tableRecord = $("<tr>").attr("id", recordId);
+
+           var itemNoTd = $("<td>").text(itemCount);
+           var itemNameTd = $("<td>").text(itemName);
+           var itemDeleteTd = $("<td>").append("<button type='button' class='btn btn-danger'>削除</button>");
+           var tableRecord = $("<tr>").append(itemNoTd).append(itemNameTd).append(itemDeleteTd);
+           $("#items").append(tableRecord);
+        }
+        function onDelete(elementId, name) {
+             console.log(name + "を削除");
+             $(elementId).remove();
+             document[formName].submit();
+        }
+</script>
+<div class="container">
+    <div class="row">
+      <div class="col">
+            <div class="form-group">
+                <label for="item_name">名前</label>
+                <input id="item_name" type="text" class="form-control" name="item_name" placeholder="自転車, 犬, マンガ" value="" />
+            </div>
+        </div>
+        <div class="col">
+           <div class="form-group">
+              <button type="button" class="btn btn-primary" onclick="onCreate();">追加する</button>
+           </div>
+        </div>
+     </div>
+
+     <table id="items" class="table">
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>名前</th>
+                <th>削除</th>
+            </tr>
+            </thead>
+            <tbody>
+               <tr id="item-0">
+                  <td>-</td>
+                  <td>猫</td>
+                  <td><button disabled="disabled" type="button" class="btn btn-danger" onclick="onDelete('1', '猫');">削除</button></td>
+               </tr>
+            </tbody>
+        </table>
+</div>
+

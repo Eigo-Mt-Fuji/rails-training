@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20180326132546) do
 
-  create_table "daily_reports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "daily_reports", force: :cascade do |t|
     t.date "date"
     t.string "from_time"
     t.string "end_time"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20180326132546) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
