@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>ハイスコア</h1>
+
+<% if @highscores.empty? %>
+   <p>記録がありません</p>
+<% else %>
+      <table id="items" class="table table-striped table-light">
+         <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">ユーザ</th>
+                <th scope="col">スコア</th>
+            </tr>
+         </thead>
+         <tbody>
+             <% @highscores.each_with_index do |highscore, i| %>
+                <tr id="item-<%= highscore[:user_id] %>">
+                    <td scope="row"><%= i + 1 %></td>
+                    <td><%= highscore[:user_name] %>(ID: <%= highscore[:user_id] %>)</td>
+                    <td><%= highscore[:score].to_s(:delimited) %></td>
+                </tr>
+             <% end %>
+         </tbody>
+      </table>
+<% end %>
+</div>
+
