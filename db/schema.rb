@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180326132546) do
+ActiveRecord::Schema.define(version: 20180623014359) do
 
   create_table "daily_reports", force: :cascade do |t|
     t.date "date"
     t.string "from_time"
     t.string "end_time"
     t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
