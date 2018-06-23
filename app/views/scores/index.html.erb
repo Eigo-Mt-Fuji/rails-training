@@ -1,6 +1,50 @@
+<script type="text/javascript">
+    
+    /**
+     *
+     */
+    function saveScore(user_id, score) {
+
+        //TODO: 通信開始時の制御を入れる
+        
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "/scores/create",
+            data: {
+                user_id: user_id,
+                score: score
+            },
+            success: function(data, textStatus, jqXHR) {
+                // data.statusを見て処理を行う
+                if(data.status == "ok") {
+
+                }else {
+
+                    if(data.message !== undefined) {
+
+                        $("#error_message").text(data.message);
+                    }
+                }
+                //TODO: 通信終了時の画面制御を入れる
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(jxXHR.responseText);
+                $("#error_message").text("エラーが発生しました");
+                //TODO: 通信終了時の画面制御を入れる
+            }
+        });
+        return true;
+    }
+    // 1秒経過すると自動的にスコアを保存する処理が実行されます
+    setTimeout(function(){
+        
+        saveScore(1, 10000);
+    }, 1000);
+</script>
 <div class="container">
   <h1>ハイスコア</h1>
-
+  <div id="error_message" style="color: #ff0000"></div>
 <% if @highscores.empty? %>
    <p>記録がありません</p>
 <% else %>
